@@ -15,13 +15,13 @@ import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAKaQSrMVFoyatBWJwWr9E2ph0Ah_qhMEw",
-  authDomain: "lunchbox-3ac50.firebaseapp.com",
-  projectId: "lunchbox-3ac50",
-  storageBucket: "lunchbox-3ac50.appspot.com",
-  messagingSenderId: "849929265490",
-  appId: "1:849929265490:web:037f8cf1e3ac4718db1a8b",
-  measurementId: "G-3E13ZNVZRV"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 // const app = initializeApp(firebaseConfig);
