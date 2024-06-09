@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
+import { Image, StyleSheet, Platform, Pressable, TouchableOpacity } from 'react-native';
+import { Link, router } from 'expo-router';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -11,7 +11,7 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/Lunchbox.jpg')}
           style={styles.reactLogo}
         />
       }>
@@ -22,30 +22,36 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
+          Add, update or delete <ThemedText type="defaultSemiBold">Your Lunch</ThemedText> and any other daily activities
         </ThemedText>
+        <Link style={{fontSize:16, color:"#dc4c00"}}  href="./register"> give it a try  --{'>'}</Link>
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 2: Explore</ThemedText>
         <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
+          Tap the Explore tab to see what GA will eat today, or how many chapatis will Cess eat today
         </ThemedText>
+        <Link style={{fontSize:16, color:"#dc4c00"}}  href="./explore"> See peoples additions --{'>'} </Link>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+      
+	  <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 3: Get started</ThemedText>
         <ThemedText>
           When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          <ThemedText type="defaultSemiBold">click the button bellow</ThemedText> to get started
+          <ThemedText type="defaultSemiBold">{' '} to save your activity</ThemedText>
         </ThemedText>
       </ThemedView>
+
+	  <ThemedView style={{paddingHorizontal: 48}}>
+		<TouchableOpacity onPress={()=>{
+		router.push("login")
+		}}
+		style={{ borderRadius:20, backgroundColor: "#dc4c00", padding:10}}>
+		<ThemedText type="defaultSemiBold" style={{textAlign:"center"}}>Get Started</ThemedText>
+		</TouchableOpacity>
+	  </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -61,10 +67,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+    top: 0,
+	right: 0,
     position: 'absolute',
   },
 });
